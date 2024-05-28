@@ -80,10 +80,8 @@ abstract public class DownloadResponse
     // HTTP Compression RFC 2616 : Standard headers
     public static final String CONTENT_ENCODING = "content-encoding";
 
-    // HTTP Compression RFC 2616 : Standard header for HTTP/Pack200 Compression
+    // HTTP Compression RFC 2616 : Standard header for HTTP Compression
     public static final String GZIP_ENCODING = "gzip";
-
-    public static final String PACK200_GZIP_ENCODING = "pack200-gzip";
 
     public DownloadResponse()
     { /* do nothing */ }
@@ -332,11 +330,7 @@ abstract public class DownloadResponse
             if ( _fileName != null )
             {
 
-                if ( _fileName.endsWith( ".pack.gz" ) )
-                {
-                    response.setHeader( CONTENT_ENCODING, PACK200_GZIP_ENCODING );
-                }
-                else if ( _fileName.endsWith( ".gz" ) )
+                if ( _fileName.endsWith( ".gz" ) )
                 {
                     response.setHeader( CONTENT_ENCODING, GZIP_ENCODING );
                 }

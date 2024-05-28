@@ -19,7 +19,6 @@ package org.codehaus.mojo.webstart.generator;
  * under the License.
  */
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DefaultArtifact;
@@ -28,6 +27,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.codehaus.mojo.webstart.ResolvedJarResource;
 import org.codehaus.plexus.util.ReaderFactory;
 import org.custommonkey.xmlunit.Diff;
+import org.junit.Assert;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;

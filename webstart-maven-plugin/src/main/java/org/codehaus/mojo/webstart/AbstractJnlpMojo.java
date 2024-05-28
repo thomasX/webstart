@@ -296,13 +296,6 @@ public abstract class AbstractJnlpMojo
 
             processNativeLibs();
 
-            if ( ( isPack200() || getSign() != null ) && getLog().isDebugEnabled() )
-            {
-                logCollection(
-                        "Some dependencies may be skipped. Here's the list of the artifacts that should be signed/packed: ",
-                        getModifiedJnlpArtifacts() );
-            }
-
             // ---
             // Process collected jars
             // ---
@@ -682,7 +675,7 @@ public abstract class AbstractJnlpMojo
                                               getWebstartJarURLForVelocity(), getEncoding() );
 
         GeneratorConfig generatorConfig =
-                new GeneratorConfig( getLibPath(), isPack200(), outputJarVersions, isUseUniqueVersions(), artifactWithMainClass,
+                new GeneratorConfig( getLibPath(), outputJarVersions, isUseUniqueVersions(), artifactWithMainClass,
                                      getDependencyFilenameStrategy(), packagedJnlpArtifacts, jnlpExtensions, getCodebase(),
                                      jnlp );
 
@@ -826,7 +819,6 @@ public abstract class AbstractJnlpMojo
 
         getLog().debug( "basedir " + this.basedir );
         getLog().debug( "gzip " + isGzip() );
-        getLog().debug( "pack200 " + isPack200() );
         getLog().debug( "project " + this.getProject() );
         getLog().debug( "verbose " + isVerbose() );
 
@@ -1108,7 +1100,7 @@ public abstract class AbstractJnlpMojo
                                               getWebstartJarURLForVelocity(), getEncoding() );
 
         ExtensionGeneratorConfig extensionGeneratorConfig =
-                new ExtensionGeneratorConfig( getLibPath(), isPack200(), outputJarVersions, isUseUniqueVersions(),
+                new ExtensionGeneratorConfig( getLibPath(), outputJarVersions, isUseUniqueVersions(),
                                               artifactWithMainClass, getDependencyFilenameStrategy(),
                                               extensionsJnlpArtifacts, getCodebase(), extension );
         ExtensionGenerator jnlpGenerator =

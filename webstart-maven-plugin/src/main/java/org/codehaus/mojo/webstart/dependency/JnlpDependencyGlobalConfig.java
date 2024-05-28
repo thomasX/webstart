@@ -19,15 +19,12 @@ package org.codehaus.mojo.webstart.dependency;
  * under the License.
  */
 
-import org.apache.commons.collections.MapUtils;
-import org.codehaus.mojo.webstart.dependency.filenaming.DependencyFilenameStrategy;
-import org.codehaus.mojo.webstart.pack200.Pack200Config;
-import org.codehaus.mojo.webstart.sign.SignConfig;
-
 import java.io.File;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
+import org.apache.commons.collections.MapUtils;
+import org.codehaus.mojo.webstart.dependency.filenaming.DependencyFilenameStrategy;
+import org.codehaus.mojo.webstart.sign.SignConfig;
 
 /**
  * Created on 1/4/14.
@@ -44,8 +41,6 @@ public class JnlpDependencyGlobalConfig
 
     private final File finalDirectory;
 
-    private final Pack200Config pack200;
-
     private final SignConfig sign;
 
     private final Map<String, String> updateManifestEntries;
@@ -61,7 +56,7 @@ public class JnlpDependencyGlobalConfig
     private final DependencyFilenameStrategy dependencyFilenameStrategy;
 
     public JnlpDependencyGlobalConfig( ClassLoader loader, DependencyFilenameStrategy dependencyFilenameStrategy,
-                                       File workingDirectory, File finalDirectory, Pack200Config pack200,
+                                       File workingDirectory, File finalDirectory,
                                        SignConfig sign, Map<String, String> updateManifestEntries, boolean gzip,
                                        boolean verbose, boolean unsignAlreadySignedJars, boolean canUnsign )
     {
@@ -69,7 +64,6 @@ public class JnlpDependencyGlobalConfig
         this.dependencyFilenameStrategy = dependencyFilenameStrategy;
         this.workingDirectory = workingDirectory;
         this.finalDirectory = finalDirectory;
-        this.pack200 = pack200;
         this.sign = sign;
         this.updateManifestEntries = Collections.unmodifiableMap( updateManifestEntries );
         this.gzip = gzip;
@@ -92,16 +86,6 @@ public class JnlpDependencyGlobalConfig
     public File getFinalDirectory()
     {
         return finalDirectory;
-    }
-
-    /**
-     * Returns the files to be passed without pack200 compression.
-     *
-     * @return Returns the list value of the pack200.passFiles.
-     */
-    public List<String> getPack200PassFiles()
-    {
-        return isPack200() ? pack200.getPassFiles() : null;
     }
 
     public SignConfig getSign()
@@ -147,10 +131,5 @@ public class JnlpDependencyGlobalConfig
     public boolean isUpdateManifest()
     {
         return MapUtils.isNotEmpty( updateManifestEntries );
-    }
-
-    public boolean isPack200()
-    {
-        return pack200 != null && pack200.isEnabled();
     }
 }

@@ -24,7 +24,6 @@ import org.codehaus.mojo.webstart.dependency.filenaming.DependencyFilenameStrate
 import org.codehaus.mojo.webstart.sign.SignConfig;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -100,27 +99,6 @@ public class JnlpDependencyConfig
     public File getFinalDirectory()
     {
         return globalConfig.getFinalDirectory();
-    }
-
-    /**
-     * Returns the flag that indicates whether or not jar resources
-     * will be compressed using pack200.
-     *
-     * @return Returns the value of the pack200.enabled field.
-     */
-    public boolean isPack200()
-    {
-        return globalConfig.isPack200();
-    }
-
-    /**
-     * Returns the files to be passed without pack200 compression.
-     *
-     * @return Returns the list value of the pack200.passFiles.
-     */
-    public List<String> getPack200PassFiles()
-    {
-        return globalConfig.getPack200PassFiles();
     }
 
     /**

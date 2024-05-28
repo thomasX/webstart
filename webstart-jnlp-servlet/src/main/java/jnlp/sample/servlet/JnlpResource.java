@@ -151,29 +151,6 @@ public class JnlpResource
             {
 
                 boolean found = false;
-                // pack200 compression
-                if ( encoding != null && _mimeType != null &&
-                        ( _mimeType.compareTo( JAR_MIME_TYPE ) == 0 || _mimeType.compareTo( JAR_MIME_TYPE_NEW ) == 0 ) &&
-                        encoding.toLowerCase().contains( DownloadResponse.PACK200_GZIP_ENCODING ) )
-                {
-                    search_path = orig_path + ".pack.gz";
-                    _resource = context.getResource( search_path );
-                    // Get last modified time
-                    if ( _resource != null )
-                    {
-                        _lastModified = getLastModified( context, _resource, search_path );
-                        if ( _lastModified != 0 )
-                        {
-                            _path = search_path;
-                            found = true;
-                        }
-                        else
-                        {
-                            _resource = null;
-                        }
-                    }
-                }
-
                 // gzip compression
                 if ( !found && encoding != null &&
                         encoding.toLowerCase().contains( DownloadResponse.GZIP_ENCODING ) )
