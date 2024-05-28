@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>webstart</artifactId>
-  <version>1.21.6</version>
+  <version>1.21.7</version>
   <packaging>pom</packaging>
 
   <name>MWEBSTART :: Project</name>
