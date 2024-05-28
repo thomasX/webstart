@@ -85,7 +85,6 @@
 	<url>https://github.com/thomasX/webstart</url>
 	<connection>scm:git:https://github.com/thomasX/webstart.git</connection>
 	<developerConnection>scm:git:https://github.com/thomasX/webstart.git</developerConnection>
-	<tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
@@ -97,9 +96,13 @@
   </ciManagement>
   <distributionManagement>
     <site>
-      <id>github</id>
-      <url>scm:git:git@github.com:mojohaus/webstart.git</url>
+      <id>github-webstart</id>
+      <url>scm:git:https://github.com/thomasX/webstart.git</url>
     </site>
+    <repository>
+			<id>internal.repo</id>
+			<url>file://${project.build.directory}/gh-pages</url>
+	</repository>
   </distributionManagement>
 
   <properties>
