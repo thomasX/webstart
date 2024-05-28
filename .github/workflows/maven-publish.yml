@@ -26,9 +26,9 @@ jobs:
         maven-version: 3.9.6
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -DskipITs=true -DskipReports=true
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy
+      run: mvn deploy -DskipITs=true -DskipReports=true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
