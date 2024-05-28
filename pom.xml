@@ -100,8 +100,9 @@
       <url>scm:git:https://github.com/thomasX/webstart.git</url>
     </site>
     <repository>
-			<id>internal.repo</id>
-			<url>file://${project.build.directory}/gh-pages</url>
+			<id>github</id>
+			<name>Github Packages</name>			
+			<url>https://maven.pkg.github.com/thomasX/webstart</url>
 	</repository>
   </distributionManagement>
 
